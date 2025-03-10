@@ -3,9 +3,8 @@ public class ParkingSpots {
     private Vehicle vehicle;
     private boolean isAvailable;
 
-    public ParkingSpots(int spotId, Vehicle vehicle) {
+    public ParkingSpots(int spotId) {
         this.spotId = spotId;
-        this.vehicle = vehicle;
         isAvailable = true;
     }
     public void assignVehicle(Vehicle vehicle){

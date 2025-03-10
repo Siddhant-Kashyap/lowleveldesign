@@ -1,6 +1,6 @@
 public class Vehicle {
-    private String numberPlate;
-    private VehicleType vehicleType;
+     String numberPlate;
+     VehicleType vehicleType;
 
     public Vehicle(String numberPlate, VehicleType vehicleType) {
         this.numberPlate = numberPlate;
