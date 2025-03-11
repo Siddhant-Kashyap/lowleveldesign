@@ -13,7 +13,7 @@ public class ParkingSpots {
     }
     public void removeVehicle(){
         this.vehicle = null;
-        this.isAvailable = false;
+        this.isAvailable = true;
     }
     public  boolean isAvailable(){
         return isAvailable;
