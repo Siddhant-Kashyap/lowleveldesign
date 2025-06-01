@@ -13,16 +13,42 @@ public class Game {
         players.add(player2);
     }
 
+
+
     public void start(){
         Scanner sc = new Scanner(System.in);
 
         while(true){
             //printboard
+            board.printBoard();
+
             //get the current player
+            Player currentPlayer= players.pollFirst();
+            System.out.println(currentPlayer.getName()+"'s Chance to play.");
+            System.out.println("Please Enter row or column to place the your piece");
             //take input for row and col
-            //check validity of move and if valid place it on board
-            //check winner
-            //add the plater to back of queue
+            int row = sc.nextInt();
+            int col = sc.nextInt();
+            if(!board.placePeice(row,col,currentPlayer.getPeice())){
+                System.out.println("Invalid move");
+                players.addFirst(currentPlayer);
+                continue;
+            }
+            //check Winner
+            if(board.checkWinner(row,col,currentPlayer.getPeice())){
+                board.printBoard();
+                System.out.println(currentPlayer.getName() + " wins!");
+                break;
+            }
+
+
+            if(board.isFull()){
+                System.out.println("Its a draw");
+                board.printBoard();
+                break;
+            }
+            players.addLast(currentPlayer);
         }
+        sc.close();
     }
 }
